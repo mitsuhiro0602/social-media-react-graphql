@@ -18,4 +18,5 @@ mongoose.connect(MONGODB, { useNewUrlParser: true})
   })
   .then(res => {
     console.log(`Server runnning at ${res.url}`)
-  });
+  }
+);
