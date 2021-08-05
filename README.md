@@ -16,3 +16,6 @@ yarn add semantic-ui-css semantic-ui-react
 
 ## momentをインストールする
 yarn add moment
+
+## apollo-link-contextをインストールする
+yarn add apollo-link-context

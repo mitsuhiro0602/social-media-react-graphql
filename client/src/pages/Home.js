@@ -26,12 +26,15 @@ const Home = () => {
           </Grid.Column>
         )}
         {loading ? (<h1>Loading posts...</h1>) 
-        : (data.getPosts &&
-            data.getPosts.map((post) => (
-              <Grid.Column key={post.id} style= {{ marginBottom: 20}}>
-                <PostCard post={post} />
-              </Grid.Column>
-            ))
+        : (
+          <Transition.Group>
+            {data.getPosts &&
+              data.getPosts.map((post) => (
+                <Grid.Column key={post.id} style= {{ marginBottom: 20}}>
+                  <PostCard post={post} />
+                </Grid.Column>
+              ))}
+          </Transition.Group>
           )
         }
       </Grid.Row>
