@@ -19,6 +19,7 @@ const PostForm = () => {
 
       let posts = data.getPosts || {}
 
+      // eslint-disable-next-line no-unused-vars
       posts = [result.data.createPost, ...data.getPosts];
       proxy.writeQuery({ query: FETCH_POSTS_QUERY, data});
       values.body = '';
@@ -49,7 +50,7 @@ const PostForm = () => {
     {error && (
       <div className="ui error message" style={{marginBottom: 20}}>
         <ui className="list">
-          {/* <li>{error.graphQLErrors[0].message}</li> */}
+          <li>{error.graphQLErrors[0].message}</li>
         </ui>
       </div>
     )}

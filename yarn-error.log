@@ -1,5 +1,5 @@
 Arguments: 
-  /Users/ookouchimitsuhiro/.nvm/versions/node/v14.17.0/bin/node /usr/local/Cellar/yarn/1.22.10/libexec/bin/yarn.js add bpdy-parser
+  /Users/ookouchimitsuhiro/.nvm/versions/node/v14.17.0/bin/node /usr/local/Cellar/yarn/1.22.10/libexec/bin/yarn.js add bodyParser
 
 PATH: 
   /Users/ookouchimitsuhiro/.nvm/versions/node/v14.17.0/bin:/Applications/anaconda3/bin:/Users/ookouchimitsuhiro/.pyenv/shims:/Users/ookouchimitsuhiro/.rbenv/bin:/Users/ookouchimitsuhiro/.pyenv/bin:/usr/local/opt/mysql@5.6/bin:/Users/ookouchimitsuhiro/.rbenv/shims:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Users/ookouchimitsuhiro/Documents/機械学習/mysql資格/instantclient_18_1
@@ -14,7 +14,7 @@ Platform:
   darwin x64
 
 Trace: 
-  Error: https://registry.yarnpkg.com/bpdy-parser: Not found
+  Error: https://registry.yarnpkg.com/bodyParser: Not found
       at Request.params.callback [as _callback] (/usr/local/Cellar/yarn/1.22.10/libexec/lib/cli.js:66988:18)
       at Request.self.callback (/usr/local/Cellar/yarn/1.22.10/libexec/lib/cli.js:140749:22)
       at Request.emit (events.js:376:20)
@@ -34,22 +34,26 @@ npm manifest:
     "main": "index.js",
     "scripts": {
       "test": "echo \"Error: no test specified\" && exit 1",
-      "start": "nodemon index"
+      "start": "nodemon index.js",
+      "serve": "node index"
     },
     "keywords": [],
     "author": "",
     "license": "ISC",
     "dependencies": {
+      "@graphql-tools/schema": "^8.0.1",
       "apollo-server": "^3.1.2",
       "apollo-server-express": "^3.1.2",
       "bcryptjs": "^2.4.3",
+      "body-parser": "^1.19.0",
       "cors": "^2.8.5",
       "dotenv": "^10.0.0",
       "express": "^4.17.1",
       "graphql": "^15.5.1",
       "graphql-subscriptions": "^1.2.1",
       "jsonwebtoken": "^8.5.1",
-      "mongoose": "^5.13.5"
+      "mongoose": "^5.13.5",
+      "subscriptions-transport-ws": "^0.9.19"
     },
     "devDependencies": {
       "nodemon": "^2.0.12"
@@ -470,6 +474,11 @@ Lockfile:
     dependencies:
       retry "0.12.0"
   
+  backo2@^1.0.2:
+    version "1.0.2"
+    resolved "https://registry.yarnpkg.com/backo2/-/backo2-1.0.2.tgz#31ab1ac8b129363463e35b3ebb69f4dfcfba7947"
+    integrity sha1-MasayLEpNjRj41s+u2n038+6eUc=
+  
   balanced-match@^1.0.0:
     version "1.0.2"
     resolved "https://registry.yarnpkg.com/balanced-match/-/balanced-match-1.0.2.tgz#e83e3a7e3f300b34cb9d87f615fa0cbf357690ee"
@@ -819,6 +828,11 @@ Lockfile:
     resolved "https://registry.yarnpkg.com/etag/-/etag-1.8.1.tgz#41ae2eeb65efa62268aebfea83ac7d79299b0887"
     integrity sha1-Qa4u62XvpiJorr/qg6x9eSmbCIc=
   
+  eventemitter3@^3.1.0:
+    version "3.1.2"
+    resolved "https://registry.yarnpkg.com/eventemitter3/-/eventemitter3-3.1.2.tgz#2d3d48f9c346698fce83a85d7d664e98535df6e7"
+    integrity sha512-tvtQIeLVHjDkJYnzf2dgVMxfuSGJeM/7UCG17TT4EumTfNtF+0nebF/4zWOIkCreAbtNqhGEboB6BWrwqNaw4Q==
+  
   express@^4.17.1:
     version "4.17.1"
     resolved "https://registry.yarnpkg.com/express/-/express-4.17.1.tgz#4491fc38605cf51f8629d39c2b5d026f98a4c134"
@@ -1132,7 +1146,7 @@ Lockfile:
     resolved "https://registry.yarnpkg.com/isarray/-/isarray-1.0.0.tgz#bb935d48582cba168c06834957a54a3e07124f11"
     integrity sha1-u5NdSFgsuhaMBoNJV6VKPgcSTxE=
   
-  iterall@^1.3.0:
+  iterall@^1.2.1, iterall@^1.3.0:
     version "1.3.0"
     resolved "https://registry.yarnpkg.com/iterall/-/iterall-1.3.0.tgz#afcb08492e2915cbd8a0884eb93a8c94d0d72fea"
     integrity sha512-QZ9qOMdF+QLHxy1QIpUHUU1D5pS2CG2P69LF6L6CPjPYA/XMOmKV3PZpawHoAjHNyB0swdVTRxdYT4tbBbxqwg==
@@ -1775,6 +1789,17 @@ Lockfile:
     resolved "https://registry.yarnpkg.com/strip-json-comments/-/strip-json-comments-2.0.1.tgz#3c531942e908c2697c0ec344858c286c7ca0a60a"
     integrity sha1-PFMZQukIwml8DsNEhYwobHygpgo=
   
+  subscriptions-transport-ws@^0.9.19:
+    version "0.9.19"
+    resolved "https://registry.yarnpkg.com/subscriptions-transport-ws/-/subscriptions-transport-ws-0.9.19.tgz#10ca32f7e291d5ee8eb728b9c02e43c52606cdcf"
+    integrity sha512-dxdemxFFB0ppCLg10FTtRqH/31FNRL1y1BQv8209MK5I4CwALb7iihQg+7p65lFcIl8MHatINWBLOqpgU4Kyyw==
+    dependencies:
+      backo2 "^1.0.2"
+      eventemitter3 "^3.1.0"
+      iterall "^1.2.1"
+      symbol-observable "^1.0.4"
+      ws "^5.2.0 || ^6.0.0 || ^7.0.0"
+  
   supports-color@^5.5.0:
     version "5.5.0"
     resolved "https://registry.yarnpkg.com/supports-color/-/supports-color-5.5.0.tgz#e2e69a44ac8772f78a1ec0b35b689df6530efc8f"
@@ -1788,6 +1813,11 @@ Lockfile:
     integrity sha512-qpCAvRl9stuOHveKsn7HncJRvv501qIacKzQlO/+Lwxc9+0q2wLyv4Dfvt80/DPn2pqOBsJdDiogXGR9+OvwRw==
     dependencies:
       has-flag "^4.0.0"
+  
+  symbol-observable@^1.0.4:
+    version "1.2.0"
+    resolved "https://registry.yarnpkg.com/symbol-observable/-/symbol-observable-1.2.0.tgz#c22688aed4eab3cdc2dfeacbb561660560a00804"
+    integrity sha512-e900nM8RRtGhlV36KGEU9k65K3mPb1WV70OdjfxlG2EAuM1noi/E/BaW/uMhL7bPEssK8QV57vN3esixjUvcXQ==
   
   term-size@^2.1.0:
     version "2.2.1"
@@ -1934,6 +1964,11 @@ Lockfile:
       is-typedarray "^1.0.0"
       signal-exit "^3.0.2"
       typedarray-to-buffer "^3.1.5"
+  
+  "ws@^5.2.0 || ^6.0.0 || ^7.0.0":
+    version "7.5.3"
+    resolved "https://registry.yarnpkg.com/ws/-/ws-7.5.3.tgz#160835b63c7d97bfab418fc1b8a9fced2ac01a74"
+    integrity sha512-kQ/dHIzuLrS6Je9+uv81ueZomEwH0qVYstcAQ4/Z93K8zeko9gtAbttJWzoC5ukqXY1PpoouV3+VSOqEAFt5wg==
   
   xdg-basedir@^4.0.0:
     version "4.0.0"
