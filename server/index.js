@@ -16,9 +16,12 @@ const pubsub = new PubSub();
 require('dotenv').config();
 
 // db
+
+const connectionString = 'mongodb://mongo:27017/social-app';
 const db = async () => {
   try {
-    const success = await mongoose.connect(process.env.DATABASE, {
+    const success = await mongoose.connect(process.env.DATABASE_CLOUD, {
+    // const success = await mongoose.connect(connectionString, {
       useNewUrlParser: true,
       useUnifiedTopology: true,
       useCreateIndex: true,

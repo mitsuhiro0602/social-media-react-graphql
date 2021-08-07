@@ -1,5 +1,5 @@
 import React, { useContext } from 'react'
-import { Button, Image, Card, Icon, Label, Grid} from 'semantic-ui-react';
+import { Button, Image, Card, Icon, Label } from 'semantic-ui-react';
 import moment from 'moment';
 import {Link} from 'react-router-dom';
 import { AuthContext } from '../context/auth';
@@ -10,10 +10,6 @@ import DeleteButton from './DeleteButton';
 function PostCard({ post: { body, createdAt, id, username, likeCount, commentCount, likes}}) {
   
   const { user } = useContext(AuthContext);
-
-  function commentOnPost(){
-    console.log('comments on Post')
-  }
 
   return (
     <Card fluid>

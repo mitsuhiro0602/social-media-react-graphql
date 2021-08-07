@@ -1,4 +1,3 @@
-import { initial, values } from 'lodash';
 import { useState } from 'react';
 
 export const useForm = (callback, initialState = {}) => {
